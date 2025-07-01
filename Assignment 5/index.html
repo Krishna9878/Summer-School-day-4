@@ -1,53 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid Blog</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>MY BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 260px auto;
+      grid-template-rows: 75px auto 75px;
+      min-height: 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+    }
+    header {
+      grid-area: header;
+      background: #2a4365;
+      color: white;
+      display: grid;
+      grid-template-columns: 50px auto 50px;
+      align-items: center;
+      padding: 0 2rem;
+      font-size: 60px;
+      font-family: Arial, sans-serif;
+      font-weight: 500;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      min-height: 70px;
+    }
+    .header-title {
+      grid-column: 2;
+      justify-self: center;
+      text-align: center;
+      width: 100%;
+    }
+    .header-empty {
+      grid-column: 3;
+    }
+    aside {
+      grid-area: sidebar;
+      background: white;
+      padding: 2rem 1rem 2rem 2rem;
+      border-right: 1px solid #e2e8f0;
+      position: relative;
+      min-width: 0;
+    }
+    .sidebar-nav {
+      position: sticky;
+      top: 2rem;
+      font-family: Arial, sans-serif;
+    }
+    .sidebar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1.5rem;
+    }
+    .sidebar-nav a {
+      color: #2a4365;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4em 0.8em;
+      border-radius: 6px;
+      display: block;
+      position: relative;
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a:focus,
+    .sidebar-nav a.active {
+      background: #3182ce;
+      color: #fff;
+    }
+    main {
+      grid-area: main;
+      background: #fff;
+      padding: auto;
+      font-size: 1.25rem;
+      line-height: 1.7;
+    }
+    main h2 {
+      margin-top: 0;
+      color: #3182ce;
+      font-family: Arial, sans-serif;
+      margin-bottom: 0.4em;
+      font-size: 1.6rem;
+    }
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f7fafc;
+      color: #222;
+    }
+    main section {
+      margin-bottom: 2.8rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      scroll-margin-top: 80px;
+    }
+    main p {
+      color: #333;
+      margin-bottom: 1em;
+    }
+    footer {
+      grid-area: footer;
+      background: #2b6cb0;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      padding: 0 2rem;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+        border-radius: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        grid-template-rows: 56px auto 1fr 46px;
+      }
+      header {
+        font-size: 1.1rem;
+        min-height: 56px;
+        grid-template-columns: 40px 1fr 40px;
+        padding: 0 0.5rem;
+      }
+      .sidebar-nav ul {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 0.5em;
+      }
+      .sidebar-nav a {
+        font-size: 80;
+        padding: 0.3em 0.7em;
+      }
+      main {
+        padding: 0.7rem 0.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>My Blog Header</heade
-            <aside class="sidebar">
-                <nav>
-                    <ul>
-                        <li><a href="#">HTML Basics</a></li>
-                        <li><a href="#">CSS Styling</a></li>
-                        <li><a href="#">Grid and FlexBox</a></li>
-                        <li><a href="#">Sticky Navigation</a></li>
-                        <li><a href="#">My Web Project</a></li>
-                        </ul>
-                </nav>
-                </aside>
-                <main>
-                    <section>
-                        <h2>About Me</h2>
-                         <p>Hi, my name is Krishna Mahajan. I’m currently learning web development and really enjoying building websites like this one using HTML and CSS.</p>
-                    </section>
-                    
-                    <section>
-                        <h2>My Interest</h2>
-                        <p>I'm interested in techmology especially thing like programming ,drones and designing web layout.I also enjoy working on creative projects in my free time</p>
-                    x</section>
-                    
-                    <section>
-                    <h2>What I'm Learning</h2>
-                    <p>I have been learning HTML,CSS and how to create layouts using Grid and Flexbox.This project helps me alot to understand me how to build a blog-style page.</p>
-                    </section>
-                   
-                    <section>
-                        <h2>My Goals</h2>
-                        <p>I want to become a good front end developer and also explore the JavaScript in the future.My goal is to make responsive and good-looing websites.</p>
-                    </section>
+  <div class="container">
+    <header>
+      <span class="header-title">My Awesome Blog</span>
+      <span class="header-empty"></span>
+    </header>
+    <aside aria-label="Sidebar navigation">
+      <nav class="sidebar-nav" aria-label="Blog sections">
+        <ul>
+          <li><a href="#para1">Introduction</a></li>
+          <li><a href="#para2">History</a></li>
+          <li><a href="#para3">Culture & Spirituality</a></li>
+          <li><a href="#para4">Modern Amritsar</a></li>
+          <li><a href="#para5">Conclusion</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main id="main-content">
+      <section id="para1">
+        <h2>Amritsar: The City of the Golden Temple and Rich Heritage</h2>
+        <p>
+          Amritsar, located in the northwestern Indian state of Punjab, is famous worldwide as the spiritual and cultural center of Sikhism. Known as the "Golden City," it is home to the magnificent Harmandir Sahib (Golden Temple), a symbol of peace, spirituality, and human brotherhood. The city blends historical significance with vibrant markets, delicious cuisine, and deep-rooted traditions.
+        </p>
+        <p>
+          Beyond the Golden Temple, Amritsar attracts millions of visitors annually who come to experience its sacred sites, bustling bazaars, and the warm hospitality of its people. It is not only a religious hub but also an important economic and educational center in Punjab.
+        </p>
+      </section>
 
-                    <section>
-                        <h2>Fun Fact</h2>
-                        <p>Beside coding,I enjoy listening to music,playing games and exploring new tech .i like to try new ideas and learn by doing hands-on-projects.</p>
-                    </section>
-                </main>
-                <fotter>Blog Footer</fotter>
-    </div>
-    
+      <section id="para2">
+        <h2>The Historical Roots of Amritsar</h2>
+        <p>
+          Founded in 1577 by the fourth Sikh Guru, Guru Ram Das, Amritsar has a rich history intertwined with Sikhism and Punjab’s cultural evolution. The city’s name means "Pool of Nectar," referring to the sacred sarovar (holy tank) surrounding the Golden Temple.
+        </p>
+        <p>
+          Amritsar witnessed pivotal events in India’s struggle for independence, including the tragic Jallianwala Bagh massacre in 1919, a significant moment that galvanized national resistance against colonial rule. Over centuries, it has grown from a small settlement into a thriving city full of historical landmarks and cultural vitality.
+        </p>
+      </section>
+
+      <section id="para3">
+        <h2>Cultural & Spiritual Life in Amritsar</h2>
+        <p>
+          Amritsar’s culture is deeply influenced by Sikh traditions and Punjabi folklore. The Golden Temple is not only a place of worship but also a hub for community service, offering free meals (langar) to thousands every day regardless of religion or background.
+        </p>
+        <p>
+          Festivals like Vaisakhi, Diwali, and Gurpurabs (Sikh religious celebrations) are observed with great enthusiasm and vibrant processions. The city is also famous for its Punjabi cuisine — Amritsari Kulcha, Chole Bhature, and Lassi are must-tries. Music, dance, and storytelling keep the rich heritage alive throughout the year.
+        </p>
+      </section>
+
+      <section id="para4">
+        <h2>Amritsar in the Modern Era</h2>
+        <p>
+          While Amritsar remains rooted in tradition, it is also embracing modernization. Improved infrastructure, an expanding education sector including institutions like Guru Nanak Dev University, and growing tourism facilities are shaping the city’s future.
+        </p>
+        <p>
+          New developments such as upgraded transportation links, hospitality services, and technological parks are contributing to economic growth. Yet, the city retains its warm, welcoming character and remains a beacon of Punjab’s cultural identity.
+        </p>
+      </section>
+
+      <section id="para5">
+        <h2>The Heart of Amritsar: Conclusion</h2>
+        <p>
+          Amritsar is more than a city; it’s a vibrant tapestry of faith, history, and culture. Whether it’s the peaceful reflection at the Golden Temple’s holy pool, the spirited celebrations in the streets, or the aroma of freshly cooked Punjabi dishes, Amritsar leaves an indelible mark on all who visit.
+        </p>
+        <p>
+          As it balances its glorious past with an exciting future, Amritsar continues to be a place of inspiration, spirituality, and endless hospitality — truly a home for the soul.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>MY BLOG MADE BY Krishna Mahajan</p>
+    </footer>
+  </div>
 </body>
 </html>
