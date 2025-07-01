@@ -4,158 +4,158 @@
   <meta charset="UTF-8" />
   <title>MY BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
+ <style>
+  .container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+    grid-template-columns: 260px auto;
+    grid-template-rows: 75px auto 75px;
+    min-height: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+  }
+  header {
+    grid-area: header;
+    background: #1e3a8a; /* changed */
+    color: white;
+    display: grid;
+    grid-template-columns: 50px auto 50px;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 60px;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    min-height: 70px;
+  }
+  .header-title {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+    width: 100%;
+  }
+  .header-empty {
+    grid-column: 3;
+  }
+  aside {
+    grid-area: sidebar;
+    background: #f1f5f9; /* changed */
+    padding: 2rem 1rem 2rem 2rem;
+    border-right: 1px solid #e2e8f0;
+    position: relative;
+    min-width: 0;
+  }
+  .sidebar-nav {
+    position: sticky;
+    top: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .sidebar-nav a {
+    color: #2a4365;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    display: block;
+    position: relative;
+  }
+  .sidebar-nav a:hover,
+  .sidebar-nav a:focus,
+  .sidebar-nav a.active {
+    background: #3182ce;
+    color: #fff;
+  }
+  main {
+    grid-area: main;
+    background: #f8fafc; /* changed */
+    padding: auto;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+  main h2 {
+    margin-top: 0;
+    color: #3182ce;
+    font-family: Arial, sans-serif;
+    margin-bottom: 0.4em;
+    font-size: 1.6rem;
+  }
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #e2e8f0; /* changed */
+    color: #222;
+  }
+  main section {
+    margin-bottom: 2.8rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    scroll-margin-top: 80px;
+  }
+  main p {
+    color: #333;
+    margin-bottom: 1em;
+  }
+  footer {
+    grid-area: footer;
+    background: #1d4ed8; /* changed */
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    padding: 0 2rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  @media (max-width: 900px) {
     .container {
-      display: grid;
+      grid-template-columns: 1fr;
       grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
-      grid-template-columns: 260px auto;
-      grid-template-rows: 75px auto 75px;
-      min-height: 100px;
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 10px;
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+      border-radius: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .container {
+      grid-template-rows: 56px auto 1fr 46px;
     }
     header {
-      grid-area: header;
-      background: #2a4365;
-      color: white;
-      display: grid;
-      grid-template-columns: 50px auto 50px;
-      align-items: center;
-      padding: 0 2rem;
-      font-size: 60px;
-      font-family: Arial, sans-serif;
-      font-weight: 500;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      min-height: 70px;
-    }
-    .header-title {
-      grid-column: 2;
-      justify-self: center;
-      text-align: center;
-      width: 100%;
-    }
-    .header-empty {
-      grid-column: 3;
-    }
-    aside {
-      grid-area: sidebar;
-      background: white;
-      padding: 2rem 1rem 2rem 2rem;
-      border-right: 1px solid #e2e8f0;
-      position: relative;
-      min-width: 0;
-    }
-    .sidebar-nav {
-      position: sticky;
-      top: 2rem;
-      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      min-height: 56px;
+      grid-template-columns: 40px 1fr 40px;
+      padding: 0 0.5rem;
     }
     .sidebar-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
       display: grid;
-      gap: 1.5rem;
+      grid-auto-flow: column;
+      gap: 0.5em;
     }
     .sidebar-nav a {
-      color: #2a4365;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.4em 0.8em;
-      border-radius: 6px;
-      display: block;
-      position: relative;
-    }
-    .sidebar-nav a:hover,
-    .sidebar-nav a:focus,
-    .sidebar-nav a.active {
-      background: #3182ce;
-      color: #fff;
+      font-size: 80;
+      padding: 0.3em 0.7em;
     }
     main {
-      grid-area: main;
-      background: #fff;
-      padding: auto;
-      font-size: 1.25rem;
-      line-height: 1.7;
+      padding: 0.7rem 0.2rem;
     }
-    main h2 {
-      margin-top: 0;
-      color: #3182ce;
-      font-family: Arial, sans-serif;
-      margin-bottom: 0.4em;
-      font-size: 1.6rem;
-    }
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: #f7fafc;
-      color: #222;
-    }
-    main section {
-      margin-bottom: 2.8rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid #e2e8f0;
-      scroll-margin-top: 80px;
-    }
-    main p {
-      color: #333;
-      margin-bottom: 1em;
-    }
-    footer {
-      grid-area: footer;
-      background: #2b6cb0;
-      color: #fff;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      padding: 0 2rem;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    @media (max-width: 900px) {
-      .container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "header"
-          "sidebar"
-          "main"
-          "footer";
-        border-radius: 0;
-      }
-    }
-    @media (max-width: 600px) {
-      .container {
-        grid-template-rows: 56px auto 1fr 46px;
-      }
-      header {
-        font-size: 1.1rem;
-        min-height: 56px;
-        grid-template-columns: 40px 1fr 40px;
-        padding: 0 0.5rem;
-      }
-      .sidebar-nav ul {
-        display: grid;
-        grid-auto-flow: column;
-        gap: 0.5em;
-      }
-      .sidebar-nav a {
-        font-size: 80;
-        padding: 0.3em 0.7em;
-      }
-      main {
-        padding: 0.7rem 0.2rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <div class="container">
